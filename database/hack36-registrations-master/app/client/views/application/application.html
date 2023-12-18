@@ -1,0 +1,127 @@
+<div id="application" class="page">
+  <div class="divided title">
+    Application
+  </div>
+
+  <div class="ui stackable page grid">
+    <div class="column">
+      <div class="ui form"
+            ng-class="{'loading': loading}">
+
+        <div class="divided title">Basic Information</div>
+
+        <!-- <fieldset ng-disabled="regIsClosed"> -->
+        <fieldset>
+
+        <div class="field">
+          <label> Email </label>
+          <input type="email"
+                 name="email"
+                 disabled="disabled"
+                 ng-model="user.email">
+        </div>
+
+        <div class="field">
+          <label> Full Name </label>
+          <input type="text"
+                 name="name"
+                 ng-model="user.profile.name">
+        </div>
+
+        <div class="field" ng-show="autoFilledSchool">
+          <label> School </label>
+          <input class="ui input"
+                 disabled="disabled"
+                 ng-show="autoFilledSchool"
+                 ng-model="user.profile.school">
+        </div>
+
+        <div class="field" ng-show="!autoFilledSchool">
+          <label> School </label>
+          <div id="school" class="ui search">
+            <div class="ui input">
+              <input class="prompt" type="text" placeholder="School" name="school" ng-model="user.profile.school">                
+            </div>
+            <div class="results"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Graduation Year</label>
+          <select
+            name="year"
+            ng-model="user.profile.graduationYear">
+            <option value="">Graduation Year</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Gender</label>
+          <select
+            name="gender"
+            ng-model="user.profile.gender">
+            <option value="">Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+            <option value="N">I prefer not to answer.</option>
+          </select>
+        </div>
+        <!-- additional fields -->
+        <div class="field">
+          <label>Resume URL </label>
+          <input class="ui input" name="resume"
+                 ng-model="user.profile.resume" required>
+        </div>
+        <div class="field">
+          <label>Github URL </label>
+          <input class="ui input" name="github"
+                 ng-model="user.profile.github" required>
+        </div>
+        <div class="field">
+          <label>Shirt Size</label>
+          <select
+            name="shirt"
+            ng-model="user.profile.shirtSize" required>
+              <option value="S">Small</option>
+              <option value="M">Medium</option>
+              <option value="L">Large</option>
+              <option value="XL">X-Large</option>
+              <option value="XXL">XX-Large</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>I would describe myself as a...</label>
+          <input type="text" name="description"
+                 placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire"
+                 ng-model="user.profile.description">
+        </div>
+        <div class="field">
+          <label>
+              What would you like to learn or get out of Hack36? (optional)
+          </label>
+          <textarea ng-model="user.profile.essay">
+          </textarea>
+        </div>
+
+        <br>
+
+        <!-- <div class="field" ng-hide="regIsClosed"> -->
+          <div class="field">
+          <button type="submit"
+                  class="fluid ui purple button"
+                  ng-click="submitForm()" disabled>
+            Your details are locked!
+          </button>
+        </div>
+
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
